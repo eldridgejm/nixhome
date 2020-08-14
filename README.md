@@ -17,6 +17,8 @@ Add the github repo to your system packages in `/etc/nixos/configuration.nix`:
   ];
 ```
 
+Then run `nixos-rebuild switch`, of course.
+
 Usage
 -----
 
