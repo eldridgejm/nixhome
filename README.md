@@ -24,9 +24,9 @@ Usage
 
 ### Installing packages
 
+Let's install two packages: neovim and ripgrep.
 In your home directory, create a folder named `.nixhome`, and within it a file
 named `config.yaml` that looks like this:
-
 
 ```
 machines:
