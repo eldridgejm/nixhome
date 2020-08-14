@@ -2,7 +2,6 @@ metapackages:
     cli:
         - ./neovim
         - ./nixpkgs
-        - ./ssh
         - fd
         - fzf
         - git
