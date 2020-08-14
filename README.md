@@ -36,6 +36,10 @@ machines:
 Run `nh install`. Now you have *ripgrep* and *neovim* installed in your user's
 nix-profile.
 
+### Removing packages
+
+To remove a package, just remove it from `config.yaml` and re-run `nh install`.
+
 
 ### Tracking dotfiles
 
@@ -82,7 +86,8 @@ machines:
             - ripgrep
 ```
 
-Notice the dot-slash in `- ./neovim`!
+Notice the dot-slash in `- ./neovim`! Run `nh install` and you'll now have your
+custom neovim installed in your user environment.
 
 ### Metapackages
 
@@ -112,4 +117,5 @@ This metapackage includes a local derivation of *st* (the simple terminal
 emulator), and the nixpkgs versions of google-chrome and zathura.
 
 To install the metapackage on a machine, include its named in the machine's
-package list with a pre-pended `meta:`, as above.
+package list with a pre-pended `meta:`, as above. Run `nh install`, and all of
+the packages in the metapackage will be installed.
