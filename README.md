@@ -1,7 +1,8 @@
 nixhome
 =======
 
-A *simple* declarative way to manage your environment with nix.
+A *simple* declarative way to manage your environment across different computers
+with nix and git.
 
 Installation
 ------------
@@ -27,11 +28,15 @@ named `config.yaml` that looks like this:
 
 ```
 machines:
-    alamere:
+    your_machines_hostname:
         packages:
             - neovim
             - ripgrep
 ```
+
+It is important that you change `your_machines_hostname` to your machine's
+hostname, as this is how nixhome determines what packages should be installed.
+If you have another machine, you can also add another section for it.
 
 Run `nh install`. Now you have *ripgrep* and *neovim* installed in your user's
 nix-profile.
@@ -119,3 +124,8 @@ emulator), and the nixpkgs versions of google-chrome and zathura.
 To install the metapackage on a machine, include its named in the machine's
 package list with a pre-pended `meta:`, as above. Run `nh install`, and all of
 the packages in the metapackage will be installed.
+
+
+# Examples
+
+An example are located in the `./examples` directory.
