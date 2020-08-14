@@ -1,0 +1,22 @@
+metapackages:
+    cli:
+        - ./neovim
+        - ./nixpkgs
+        - ./ssh
+        - fd
+        - fzf
+        - git
+        - gnumake
+        - ripgrep
+    gui:
+        - ./st
+        - google-chrome
+        - nitrogen
+        - zathura
+        - xfce.thunar
+machines:
+    alamere:
+        user: eldridge
+        packages:
+            - meta:cli
+            - meta:gui

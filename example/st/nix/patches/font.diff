@@ -1,0 +1,10 @@
+diff -u p2_colors/config.def.h p3_font/config.def.h
+--- p2_colors/config.def.h	2018-01-27 15:45:49.679718540 -0500
++++ p3_font/config.def.h	2018-01-27 15:46:59.466554491 -0500
+@@ -5,5 +5,5 @@
+  *
+  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
+  */
+-static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
++static char *font = "Hack:pixelsize=20:antialias=1:hintstyle=1:dpi=130";
+ static int borderpx = 2;

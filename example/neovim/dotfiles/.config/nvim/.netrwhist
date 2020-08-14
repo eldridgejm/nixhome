@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =0
+let g:netrw_dirhist_0='/home/eldridge/.nixhome/neovim/nix'
+let g:netrw_dirhist_9='/home/eldridge/.nixhome/neovim'
+let g:netrw_dirhist_8='/home/eldridge/.nixhome'
+let g:netrw_dirhist_7='/home/eldridge/.nixhome/st'
+let g:netrw_dirhist_6='/home/eldridge/.nixhome'
+let g:netrw_dirhist_5='/home/eldridge/workbench/nixprofile'
+let g:netrw_dirhist_4='/home/eldridge/workbench/nixhome/src'
+let g:netrw_dirhist_3='/home/eldridge/workbench/nixhome'
+let g:netrw_dirhist_2='/home/eldridge/.nixhome/neovim/nix'
+let g:netrw_dirhist_1='/home/eldridge/.nixhome/neovim'

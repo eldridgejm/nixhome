@@ -1,0 +1,65 @@
+diff -u p1_scroll/config.def.h p2_colors/config.def.h
+--- p1_scroll/config.def.h	2018-01-27 15:39:41.642175519 -0500
++++ p2_colors/config.def.h	2018-01-27 15:45:49.679718540 -0500
+@@ -86,30 +86,30 @@
+ /* Terminal colors (16 first used in escape sequence) */
+ static const char *colorname[] = {
+ 	/* 8 normal colors */
+-	"black",
+-	"red3",
+-	"green3",
+-	"yellow3",
+-	"blue2",
+-	"magenta3",
+-	"cyan3",
+-	"gray90",
++  "#000000", /* black   */
++  "#ff5555", /* red     */
++  "#50fa7b", /* green   */
++  "#f1fa8c", /* yellow  */
++  "#bd93f9", /* blue    */
++  "#ff79c6", /* magenta */
++  "#8be9fd", /* cyan    */
++  "#bbbbbb", /* white   */
+ 
+ 	/* 8 bright colors */
+-	"gray50",
+-	"red",
+-	"green",
+-	"yellow",
+-	"#5c5cff",
+-	"magenta",
+-	"cyan",
+-	"white",
++  "#44475a", /* black   */
++  "#ff5555", /* red     */
++  "#50fa7b", /* green   */
++  "#f1fa8c", /* yellow  */
++  "#bd93f9", /* blue    */
++  "#ff79c6", /* magenta */
++  "#8be9fd", /* cyan    */
++  "#ffffff", /* white   */
+ 
+ 	[255] = 0,
+ 
+ 	/* more colors can be added after 255 to use with DefaultXX */
+-	"#cccccc",
+-	"#555555",
++	"#282a36", // 256 background
++	"#f8f8f2", // 257 reversed cursor
+ };
+ 
+ 
+@@ -117,9 +117,9 @@
+  * Default colors (colorname index)
+  * foreground, background, cursor, reverse cursor
+  */
+-unsigned int defaultfg = 7;
+-unsigned int defaultbg = 0;
+-static unsigned int defaultcs = 256;
++unsigned int defaultfg = 257;
++unsigned int defaultbg = 256;
++static unsigned int defaultcs = 257;
+ static unsigned int defaultrcs = 257;
+ 
+ /*
