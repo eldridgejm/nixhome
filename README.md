@@ -72,6 +72,17 @@ is in `~/.config/nvim/init.vim`, place your configuration in
 Run `nh install`. Your dotfiles have been stowed.
 
 
+### Making placeholder directories
+
+Sometimes it is useful to create an empty directory so that Stow doesn't try to
+create a symlink where a directory should exist. For instance, if two packages
+want to place files into `~/.config/fish/environment`, we should make this an
+empty directory so that it doesn't become a symlink.
+
+To do this, place a file named `directories` in the package. Each line in the
+file should be a path to a to-be-created directory (relative to home).
+
+
 ### Customized packages
 
 Suppose we want to customize neovim, perhaps by overriding some of the build

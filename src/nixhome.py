@@ -68,6 +68,18 @@ def make_nix_environment_file(packages, machine):
     return default_nix
 
 
+def create_directories(packages, on_create=null_callback):
+    for package in packages:
+        if package.startswith('./'):
+            cwd = NIXHOME_DIRECTORY / package
+            if (cwd / 'directories').exists():
+                with (cwd / 'directories').open() as fileobj:
+                    for line in fileobj:
+                        path = pathlib.Path().home() / line.strip()
+                        on_create(path)
+                        path.mkdir(parents=True, exist_ok=True)
+
+
 def stow_dotfiles(packages, on_stow=null_callback):
     for package in packages:
         if package.startswith('./'):
@@ -134,6 +146,10 @@ def cmd_install(args):
     def on_install():
         print(f'Running nix-env -f default.nix.tml -iA nixhome-{hostname}')
 
+    def on_create(directory):
+        print(f"Creating directory {directory}")
+
+    create_directories(packages, on_create=on_create)
     stow_dotfiles(packages, on_stow=print_stowing)
     rebuild_nix_environment(
         packages, hostname, 
