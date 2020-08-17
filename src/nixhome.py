@@ -180,6 +180,14 @@ def cmd_pull(args):
     subprocess.run('git pull', cwd=NIXHOME_DIRECTORY, shell=True)
 
 
+def cmd_status(args):
+    subprocess.run('git status', cwd=NIXHOME_DIRECTORY, shell=True)
+
+
+def cmd_log(args):
+    subprocess.run('git log', cwd=NIXHOME_DIRECTORY, shell=True)
+
+
 def main():
     parser = argparse.ArgumentParser()
     subparsers = parser.add_subparsers()
@@ -195,6 +203,12 @@ def main():
 
     parser_clean = subparsers.add_parser('pull')
     parser_clean.set_defaults(cmd=cmd_pull)
+
+    parser_clean = subparsers.add_parser('status')
+    parser_clean.set_defaults(cmd=cmd_status)
+
+    parser_clean = subparsers.add_parser('log')
+    parser_clean.set_defaults(cmd=cmd_log)
 
     args = parser.parse_args()
     if hasattr(args, 'cmd'):
