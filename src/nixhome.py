@@ -1,15 +1,20 @@
 import argparse
+import os
 import pathlib
 import typing
 import socket
 import subprocess
-import os
+import sys
 
 import yaml
 
 
 NIXHOME_DIRECTORY = pathlib.Path.home() / '.nixhome'
 CONFIG_FILENAME = 'config.yaml'
+
+
+def run_in_nixhome(cmd, check=True):
+    return subprocess.run(cmd, shell=True, cwd=NIXHOME_DIRECTORY, check=check)
 
 
 def null_callback(*args, **kwargs):
@@ -161,6 +166,20 @@ def cmd_clean(args):
     clean_stowed_symlinks(pathlib.Path.home())
 
 
+def cmd_push(args):
+    try:
+        run_in_nixhome('git add .')
+        run_in_nixhome('git commit -a')
+        run_in_nixhome('git push')
+    except subprocess.CalledProcessError:
+        print('Push did not occur.')
+        sys.exit(1)
+
+
+def cmd_pull(args):
+    subprocess.run('git pull', cwd=NIXHOME_DIRECTORY, shell=True)
+
+
 def main():
     parser = argparse.ArgumentParser()
     subparsers = parser.add_subparsers()
@@ -170,6 +189,12 @@ def main():
 
     parser_clean = subparsers.add_parser('clean')
     parser_clean.set_defaults(cmd=cmd_clean)
+
+    parser_clean = subparsers.add_parser('push')
+    parser_clean.set_defaults(cmd=cmd_push)
+
+    parser_clean = subparsers.add_parser('pull')
+    parser_clean.set_defaults(cmd=cmd_pull)
 
     args = parser.parse_args()
     if hasattr(args, 'cmd'):
