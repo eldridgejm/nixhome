@@ -177,7 +177,12 @@ def cmd_push(args):
 
 
 def cmd_pull(args):
-    subprocess.run('git pull', cwd=NIXHOME_DIRECTORY, shell=True)
+    try:
+        subprocess.run('git pull', cwd=NIXHOME_DIRECTORY, shell=True)
+        cmd_install(args)
+    except subprocess.CalledProcessError:
+        print('Pull failed.')
+        sys.exit(1)
 
 
 def cmd_status(args):
