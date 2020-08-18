@@ -71,6 +71,13 @@ is in `~/.config/nvim/init.vim`, place your configuration in
 
 Run `nh install`. Your dotfiles have been stowed.
 
+### Syncing your configuration
+
+Run `nh push` to commit all changes to your `.nixhome` directory and push these
+to the remote server. Run `nh pull` to pull in the latest changes.
+
+If there is a merge conflict or other routine error, you'll need to do things the
+"old-fashioned way": by manipulating the git repo in `.nixhome` directly.
 
 ### Making placeholder directories
 
