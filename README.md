@@ -18,16 +18,13 @@ repo to your system packages in `/etc/nixos/configuration.nix`:
   ];
 ```
 
+Then run `nixos-rebuild switch`, of course.
+
 If you just want a temporary installation, run `nix-build` inside the
 repository. The `nh` command is then within the `result/bin` folder.
 
-If you want to install the package imperatively, `nix-env -i -f default.nix`
-will do the trick.
-
 My preferred approach is the second, since I will then install the nixhome
 script using nixhome itself.
-
-Then run `nixos-rebuild switch`, of course.
 
 Usage
 -----
