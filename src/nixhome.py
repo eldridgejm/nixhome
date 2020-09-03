@@ -132,7 +132,7 @@ def clean_stowed_symlinks(path, max_depth=4):
             clean_stowed_symlinks(subpath, max_depth=max_depth-1)
 
 
-def cmd_install(args):
+def cmd_rebuild(args):
     """CLI command to install dotfiles and rebuild nix environment."""
     with (NIXHOME_DIRECTORY / CONFIG_FILENAME).open() as fileobj:
         config = read_config(fileobj)
@@ -197,8 +197,8 @@ def main():
     parser = argparse.ArgumentParser()
     subparsers = parser.add_subparsers()
 
-    parser_install = subparsers.add_parser('install')
-    parser_install.set_defaults(cmd=cmd_install)
+    parser_rebuild = subparsers.add_parser('rebuild')
+    parser_rebuild.set_defaults(cmd=cmd_rebuild)
 
     parser_clean = subparsers.add_parser('clean')
     parser_clean.set_defaults(cmd=cmd_clean)
