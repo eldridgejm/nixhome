@@ -169,7 +169,7 @@ def cmd_clean(args):
 def cmd_push(args):
     try:
         run_in_nixhome('git add .')
-        run_in_nixhome('git commit -a')
+        run_in_nixhome('git commit -av')
         run_in_nixhome('git push')
     except subprocess.CalledProcessError:
         print('Push did not occur.')
