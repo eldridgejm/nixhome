@@ -179,7 +179,7 @@ def cmd_push(args):
 def cmd_pull(args):
     try:
         subprocess.run('git pull', cwd=NIXHOME_DIRECTORY, shell=True)
-        cmd_install(args)
+        cmd_rebuild(args)
     except subprocess.CalledProcessError:
         print('Pull failed.')
         sys.exit(1)
