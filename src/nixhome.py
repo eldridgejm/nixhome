@@ -193,6 +193,10 @@ def cmd_log(args):
     subprocess.run('git log', cwd=NIXHOME_DIRECTORY, shell=True)
 
 
+def cmd_edit(args):
+    subprocess.run(f'$EDITOR {CONFIG_FILENAME}', cwd=NIXHOME_DIRECTORY, shell=True)
+
+
 def main():
     parser = argparse.ArgumentParser()
     subparsers = parser.add_subparsers()
@@ -203,17 +207,20 @@ def main():
     parser_clean = subparsers.add_parser('clean')
     parser_clean.set_defaults(cmd=cmd_clean)
 
-    parser_clean = subparsers.add_parser('push')
-    parser_clean.set_defaults(cmd=cmd_push)
+    parser_push = subparsers.add_parser('push')
+    parser_push.set_defaults(cmd=cmd_push)
 
-    parser_clean = subparsers.add_parser('pull')
-    parser_clean.set_defaults(cmd=cmd_pull)
+    parser_pull = subparsers.add_parser('pull')
+    parser_pull.set_defaults(cmd=cmd_pull)
 
-    parser_clean = subparsers.add_parser('status')
-    parser_clean.set_defaults(cmd=cmd_status)
+    parser_status = subparsers.add_parser('status')
+    parser_status.set_defaults(cmd=cmd_status)
 
-    parser_clean = subparsers.add_parser('log')
-    parser_clean.set_defaults(cmd=cmd_log)
+    parser_log = subparsers.add_parser('log')
+    parser_log.set_defaults(cmd=cmd_log)
+
+    parser_edit = subparsers.add_parser('edit')
+    parser_edit.set_defaults(cmd=cmd_edit)
 
     args = parser.parse_args()
     if hasattr(args, 'cmd'):
